@@ -1,18 +1,28 @@
 # svg-ast-kit
 
+[![npm version](https://img.shields.io/npm/v/svg-ast-kit.svg)](https://www.npmjs.com/package/svg-ast-kit)
+[![License: MPL-2.0](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](LICENSE)
+[![CI](https://github.com/Recoveredd/svg-ast-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/Recoveredd/svg-ast-kit/actions/workflows/ci.yml)
+
 Convert SVG strings into typed JSON trees with readable errors.
 
 `svg-ast-kit` is a small clean-room SVG-to-JSON parser for tooling, previews, audits and browser demos. It does not render SVG and it does not execute scripts. It turns SVG markup into a predictable object tree that can be inspected, transformed or serialized to JSON.
+
+Links: [Demo](https://packages.wasta-wocket.fr/svg-ast-kit/) · [npm](https://www.npmjs.com/package/svg-ast-kit) · [GitHub](https://github.com/Recoveredd/svg-ast-kit)
+
+## Package quality
+
+- TypeScript types are generated from the source.
+- ESM-only package with no runtime dependencies.
+- Marked as side-effect free for bundlers.
+- Tested on Node.js 20 and 22 with GitHub Actions.
+- Works in Node.js, browsers, Vite apps and static docs tooling.
 
 ## Install
 
 ```bash
 npm install svg-ast-kit
 ```
-
-## Demo
-
-Try the live demo: https://packages.wasta-wocket.fr/svg-ast-kit/
 
 ## Quick Start
 
