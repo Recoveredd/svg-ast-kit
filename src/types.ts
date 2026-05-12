@@ -140,5 +140,14 @@ export interface SvgFindOptions {
   caseSensitive?: boolean;
 }
 
+export interface SvgElementNameOptions {
+  /**
+   * Return each element name only once, preserving first-seen order.
+   *
+   * @default false
+   */
+  unique?: boolean;
+}
+
 export type SvgVisitor = (context: SvgWalkContext) => void | false;
 export type SvgElementPredicate = string | ((node: SvgElementNode) => boolean);

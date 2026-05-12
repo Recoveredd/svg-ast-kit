@@ -3,6 +3,7 @@ import {
   decodeSvgEntities,
   findFirstSvgElement,
   findSvgElements,
+  getSvgElementNames,
   getSvgRootElement,
   getSvgStats,
   parseSvg,
@@ -146,6 +147,13 @@ describe("helpers", () => {
         circle: 1
       }
     });
+  });
+
+  it("lists element names in document order", () => {
+    const root = parseSvg(`<svg><g><path /></g><g><circle /></g></svg>`);
+
+    expect(getSvgElementNames(root)).toEqual(["svg", "g", "path", "g", "circle"]);
+    expect(getSvgElementNames(root, { unique: true })).toEqual(["svg", "g", "path", "circle"]);
   });
 
   it("finds the first matching element and root svg element", () => {

@@ -5,6 +5,7 @@ export type {
   SvgCommentNode,
   SvgDoctypeNode,
   SvgElementNode,
+  SvgElementNameOptions,
   SvgElementPredicate,
   SvgFindOptions,
   SvgInstructionNode,
@@ -28,6 +29,7 @@ import type {
   SvgCommentNode,
   SvgDoctypeNode,
   SvgElementNode,
+  SvgElementNameOptions,
   SvgElementPredicate,
   SvgFindOptions,
   SvgInstructionNode,
@@ -143,6 +145,29 @@ export function findFirstSvgElement(
 
 export function getSvgRootElement(root: SvgRootNode | SvgNode): SvgElementNode | undefined {
   return findFirstSvgElement(root, "svg", { caseSensitive: false });
+}
+
+export function getSvgElementNames(root: SvgRootNode | SvgNode, options: SvgElementNameOptions = {}): string[] {
+  const names: string[] = [];
+  const seen = new Set<string>();
+
+  walkSvg(root, ({ node }) => {
+    if (node.type !== "element") {
+      return;
+    }
+
+    if (options.unique) {
+      if (seen.has(node.name)) {
+        return;
+      }
+
+      seen.add(node.name);
+    }
+
+    names.push(node.name);
+  });
+
+  return names;
 }
 
 function createElementMatcher(

@@ -27,7 +27,7 @@ npm install svg-ast-kit
 ## Quick Start
 
 ```ts
-import { findSvgElements, getSvgRootElement, getSvgStats, parseSvg, svgToJson } from "svg-ast-kit";
+import { findSvgElements, getSvgElementNames, getSvgRootElement, getSvgStats, parseSvg, svgToJson } from "svg-ast-kit";
 
 const tree = parseSvg(`
   <svg viewBox="0 0 10 10">
@@ -43,6 +43,9 @@ getSvgRootElement(tree)?.attributes.viewBox;
 
 getSvgStats(tree);
 // { elements: 2, attributes: 4, maxDepth: 2, ... }
+
+getSvgElementNames(tree);
+// ["svg", "circle"]
 
 svgToJson(`<svg><path d="M0 0" /></svg>`);
 // "{ ... }"
@@ -157,6 +160,20 @@ Returns the first `<svg>` element in the tree. The lookup is case-insensitive be
 import { getSvgRootElement } from "svg-ast-kit";
 
 const svg = getSvgRootElement(root);
+```
+
+### `getSvgElementNames(root, options?)`
+
+Returns element names in document order. Use `{ unique: true }` to keep only the first occurrence of each name.
+
+```ts
+import { getSvgElementNames } from "svg-ast-kit";
+
+getSvgElementNames(root);
+// ["svg", "g", "path", "g", "circle"]
+
+getSvgElementNames(root, { unique: true });
+// ["svg", "g", "path", "circle"]
 ```
 
 ### `walkSvg(root, visitor)`
