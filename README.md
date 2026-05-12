@@ -10,6 +10,10 @@ Convert SVG strings into typed JSON trees with readable errors.
 npm install svg-ast-kit
 ```
 
+## Demo
+
+Try the live demo: https://packages.wasta-wocket.fr/svg-ast-kit/
+
 ## Quick Start
 
 ```ts
