@@ -2,6 +2,16 @@
   "name": "svg-ast-kit",
   "version": "0.1.1",
   "description": "Parse SVG strings into typed JSON trees with readable errors.",
+  "keywords": [
+    "svg",
+    "ast",
+    "parser",
+    "json",
+    "xml",
+    "typescript",
+    "browser",
+    "developer-tools"
+  ],
   "type": "module",
   "sideEffects": false,
   "license": "MPL-2.0",
@@ -14,15 +24,6 @@
     "url": "https://github.com/Recoveredd/svg-ast-kit/issues"
   },
   "homepage": "https://github.com/Recoveredd/svg-ast-kit#readme",
-  "keywords": [
-    "svg",
-    "ast",
-    "parser",
-    "json",
-    "xml",
-    "typescript",
-    "browser"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
